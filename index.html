@@ -1,0 +1,486 @@
+<html>
+<head>
+    <meta http-equiv="" content="0; url=" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+      	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="main.js"></script>
+<title>Please Wait</title>   
+     <link rel="icon" type="image/png" href="PngItem_1138988 copy.png" />
+    <style>
+        body {
+            background-color: #edebdf;
+            overflow: hidden;
+            margin: 0px;
+        }
+        #menu {
+            z-index: 90;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            height: 77vh;
+            width: 10vw;
+            box-shadow: 1px 5px 19px gray;
+        }
+        #back {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            width: 60px;
+            display: none;
+            
+        }
+        
+        #back:hover {
+            filter: drop-shadow(2px 2px 4px gray);        }
+
+        
+        #cacb {
+            padding: 20px;
+            z-index: 90;
+            position: relative;
+            float: right;
+            display: inline-block;
+            height: 5vh;
+            width: 120px;
+            margin-right: -10px;
+            right: 0px;
+            top: 0px;
+        }
+        
+        #cacb .tooltiptext {
+            visibility: hidden;
+  width: 120px;
+  background-color: darkgray;
+  color: #fff;
+  text-align: center;
+text-shadow: 2px 4px 9px black;
+  border-radius: 19px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 10;
+  top: 16vh;
+  right: 1.5vw;
+        }
+        #cacb:hover {
+            filter: drop-shadow(2px 2px 4px gray);
+        }
+        
+        #cacb:hover .tooltiptext{
+            visibility: visible;
+        }
+        
+        #patientsurvey {
+            display:none;            
+            position:fixed;
+            z-index: 100;
+            width: 55vw;
+            margin-left: 20%;
+            transform: rotate(12deg);
+        }    
+        
+        #patientsurvey>img {
+            width: 100%;
+        }
+    
+        #patientsurvey>img:hover {
+            filter: drop-shadow(2px 2px 4px gray);
+        }
+        #window {
+            position: absolute;
+            right: 20vw;
+            top: 5vh;
+            height: 43vh;
+            width: 15vw;
+            overflow: hidden;
+            background-color: #b7e9f9;
+            border: solid 1px;
+            z-index: 6;
+            margin: 15px 16px 15px 15px;
+        }
+        
+        #window>img {
+            visibility: hidden;
+            height: 150%;
+        }
+        
+        #window-frame {
+            position: absolute;
+            right: 20vw;
+            top: 5vh;
+            height: 45vh;
+            width: 17.2vw;
+             border: solid 1px;
+            z-index: 4;
+            background-color: #dddcdb;
+
+        }
+        #dream {
+            width: 10vw;
+            height: 10vh;
+            position: absolute;
+            right: 19.6vw;
+            top: 36.5vh;
+            z-index: 8;
+        }
+        #window-ledge {
+            position: absolute;
+            right: 19vw;
+            top: 50vh;
+            height: 2vh;
+            width: 19vw;
+             border: solid 1px;
+            z-index: 4;
+            background-color: #dddcdb;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+        }
+        
+        #clock {
+            position: absolute;
+            right: 40vw;
+            top: 0;
+        }
+        
+        #clock>div { 
+            border: 1px solid transparent; 
+            transform: scale(.4)}
+        /* -- The outside rim of the clock with gradient -- */
+        #clock-rim {
+          display: block;
+          position: relative;
+          width: 280px;
+          height: 280px;
+          background: gray;
+          border-radius: 150px;
+        }
+        /* -- Clock's face -- */
+        #clock-face {
+          display: block;
+          position: relative;  
+          width: 260px;
+          height: 260px;
+          margin: 10px auto;
+          border-radius: 150px;
+          background: #efefef;
+        }
+        /* -- Second hand -- */
+        #second { position: absolute; top: 123px; left: 128px; width: 100px; height: 2px; border: 1px solid transparent; border-radius: 5px; transform: unset; background: grey; transform-origin: 1px 1px; }
+        /* -- Minute hand -- */
+        #minute { position: absolute; top: 123px; left: 128px; width: 100px; height: 4px; border: 1px solid transparent; border-radius: 5px; transform: unset; background: black; transform-origin: 2px 2px; }
+        /* -- Hour hand -- */
+        #hour { position: absolute; top: 123px; left: 128px; width: 50px; height: 4px; border: 1px solid transparent; border-radius: 5px; transform: unset; background: black; transform-origin: 2px 2px; }
+        /* -- Center of the clock -- */
+        #center { position: absolute; top: 118px; left: 120px; width: 16px; height: 16px; background: black; border: 1px solid gray; border-radius: 16px; }
+
+        /* -- Notches container -- */
+        #notch-container { width: 260px; height: 260px }
+        /* -- Hourly notch (thicker, but sparse) -- */
+        .notch { position: absolute; width: 10px; height: 2px; background: black; border-radius: 5px 5px 5px 5px; }
+        /* -- Minute notch (thin) -- */
+        .thin { position: absolute; width: 10px; height: 1px; border-top: 1px solid gray; }
+        
+        #painting {
+            width: 26.2vw;
+            height: 31.5vh;
+            margin-left: 20vh;
+            margin-top: 5vh;
+            box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+         #painting>img {
+            width: 38vw;
+             margin-top: -21vh;
+             margin-left: -6vw;
+        }
+        #couch-plant {
+            width: 100vw;
+            z-index: 6;
+            display: flex;
+            position: absolute;
+            bottom: 17vh;
+            height: 45vh
+        }
+        #couch-plant>#couch {
+            height: 100%;
+            width: 55%;
+            display: inline-block;
+            bottom: 0px;
+        }
+        #couch-plant>#plant {
+            height: 100%;
+            display: inline-block;
+            bottom: 0px;
+            margin-left: -5vw;
+        }
+        
+        #noisemachine {
+            width: 11vw;
+            position: absolute;
+            right: 24vw;
+            top: 13vh;
+            display: flex;
+        }
+        .material-icons.md-18 { font-size: 16px; }
+        
+        .button {
+    position: absolute;
+    border: solid 1px;
+    z-index: 10;
+      color: black;
+      padding: 2px 3px 2px 2px;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 150px;
+    background-color: lightgray;
+    box-shadow: 0px 1px 3px blue;
+}
+         .button:hover {
+            filter: drop-shadow(2px 2px 4px gray);        }
+
+        .button1 {
+              right: 29.7vw;
+            top: 21.3vh;
+        }
+        
+        .button2 {
+            right: 27.5vw;
+            top: 21.3vh;
+        }
+        #endtable {
+            width: 21vw;
+            display: inline-block;
+            margin-bottom: -22vh;
+            margin-left: -10vw
+        }
+        #table {
+            z-index: 8;
+            position:absolute;
+            left: -20vw;
+            width: 90vw;
+            bottom: -13.5vh;
+        }
+        
+        #table-svg {
+            width: 100%;
+        }
+        
+        #tissue {
+            width: 5%;
+            z-index: 20;
+            position: absolute;
+            left: 47vw;
+            top: 21vh;
+        }
+        
+        #mag {
+            width: 17%;
+            height: 200px;
+            z-index: 21;
+            position: absolute;
+            left: 50vw;
+            top: 25vh;
+        }
+        
+         #mag:hover {
+            filter: drop-shadow(2px 2px 4px gray);        }
+
+        #humanmag {
+            display:none;            
+            position:fixed;
+            z-index: 100;
+            width: 55vw;
+            margin-right: 20%;
+            transform: rotate(-12deg);
+        }
+        
+        #rug {
+            z-index: 5;
+            display: flex;
+            width: 100vw;
+            height: 30vh;
+            position: absolute;
+            bottom: -5vh;
+            left: -3vw;}
+        
+        #rug>img {
+            width: 100%;
+            height: 110%;
+        }
+        
+        #floor {
+            z-index: -1;
+            display: flex;
+            position:absolute;
+            width: 100vw;
+            height: 23vh;
+            bottom: 0px;
+            left: 0px;
+            background-color: #705f50;
+            margin: 0;
+            border-top: solid 1px; 
+        }
+    </style>
+</head>
+<body>
+    
+<audio id="WhiteNoise">
+  <source src="Get%20to%20Sleep%20-%20White%20Noise%20for%20Insomnia.mp3" type="audio/mp3">
+</audio>
+<audio id="OceanNoise">
+    <source src="Relax%205%20minutes%20of%20Sand%20and%20Sea%20Sounds%20of%20Nature%20Sleep%20Sounds.mp3" type="audio/mp3"></audio>
+    
+<div id="painting">
+    <img src="painting.svg"></div>
+    
+<div id="menu">
+    <div id="cacb">
+    <img src="clipartclipboard.svg"><span class="tooltiptext">Patient Survey</span></div>
+    </div>
+    
+    
+    
+<div id="back">
+    <img src="Asset%2029.svg">
+    </div>    
+    
+    <div id="clock">
+  <div id = "clock-rim">
+  <div id = "clock-face">
+    <div id = "notch-container"></div>
+    <div id = "hour"></div>
+    <div id = "minute"></div>
+    <div id = "second"></div>
+    <div id = "center"></div>
+  </div>
+</div>
+    </div>    
+ <div id="window">
+    <img src="https://cameras-cam.cdn.weatherbug.net/PRVWL/2020/11/28/112820201114_l.jpg" style="width: 70%; object-fit: cover;">
+    </div>   
+<div id="window-frame">
+    </div>
+
+<div id="dream">
+    <img src="dream.svg"></div>
+
+<div id="window-ledge">
+    </div>  
+
+<div id="couch-plant">
+    <img id="couch" src="couch.svg">
+    <img id="plant" src="plant.svg">
+    <div id="noise">
+        <button onclick="togglePlay()" type="button" class="button button1"><span class="material-icons md-18">power_settings_new</span></button>
+        <button onclick="playAudio2()" type="button"class="button button2"><span class="material-icons md-18">
+skip_next
+</span></button>
+        <img id="noisemachine" src="noisemachine.svg"></div>
+    <img id="endtable" src="endtable.svg"></div>
+    
+<div id="table">
+    <img id="tissue" src="tissue.svg">
+    <img id="mag" src="Asset%2033.svg">
+    <img id="table-svg" src="table.svg">
+    </div>
+<div id="rug">
+    <img src="rug.svg"></div>
+    <div id="floor">
+    </div>
+    
+    
+<div id="patientsurvey">
+    <img src="Asset%2027.svg">
+    </div>    
+    
+<div id="humanmag">
+    <img src="Asset%2034.svg"></div>
+    
+    <script>
+      
+var x = document.getElementById("WhiteNoise"); 
+var y = document.getElementById("OceanNoise");
+        
+function togglePlay() {
+    if (x.paused) {
+        y.pause()
+        x.play();
+        
+    }
+    else {
+        x.pause();
+        y.pause();
+    }
+};
+
+
+function playAudio2() { 
+    y.play(); 
+    x.pause();
+};             
+
+        /* -- HTML Clock --*/
+function deg2rad(d) { return (2 * d / 360) * Math.PI; }
+/* -- Progress the clock's hands every once in a while -- */
+setInterval(() => {
+  let minute = document.getElementById("minute");
+  let hour = document.getElementById("hour");
+  let second = document.getElementById("second");
+  /* -- note retracing by 90 degrees, this is just the way I calculated the hands, the "0" angle is at 3PM, not 12PM, -- */
+  let S = new Date().getSeconds() * 6 - 90;
+  let M = new Date().getMinutes() * 6 - 90;
+  let H = new Date().getHours() * 30 - 90;
+  
+  second.style.transform = 'rotate(' + S + 'deg)';
+  minute.style.transform = 'rotate(' + M + 'deg)';
+  hour.style.transform = 'rotate(' + H + 'deg)';
+  
+}, 10); /* -- update the clock fast enough -- */
+/* -- Helps calculate the angle of each hand on the clock -- */
+function vec2ang(x, y) {
+ angleInRadians = Math.atan2(y, x);
+ angleInDegrees = (angleInRadians / Math.PI) * 180.0;
+ return angleInDegrees;
+}
+/* -- Let's calculate position and angle of clock's notches-- */
+let nc = document.getElementById("notch-container");
+let angle = 0;
+let rotate_x = 120;
+let rotate_y = 0;
+/* -- Calculate the 60 notches for seconds and minutes -- */
+for (let i = 0; i < 60; i++) {
+  let thin = document.createElement("div");
+  let x = rotate_x * Math.cos(angle) - rotate_y * Math.cos(angle);
+  let y = rotate_y * Math.cos(angle) + rotate_x * Math.sin(angle);
+  let r = vec2ang(x, y);
+  thin.className = "thin";
+  thin.style.left = 122 + x + "px";
+  thin.style.top = 127 + y + "px";
+  thin.style.transform = "rotate(" + r + "deg)";
+  nc.appendChild(thin);
+  angle +=  (Math.PI / 300) * 10;
+}
+// reset angle parameters
+angle = 0; rotate_x = 120; rotate_y = 0;
+/* -- Calculate the thicker notches for hour hand -- */
+for (let i = 0; i < 12; i++) {
+  let notch = document.createElement("div");
+  let x = rotate_x * Math.cos(angle) - rotate_y * Math.cos(angle);
+  let y = rotate_y * Math.cos(angle) + rotate_x * Math.sin(angle);
+  let r = vec2ang(x, y);
+  notch.className = "notch";
+  notch.style.left = 122 + x + "px";
+  notch.style.top = 127 + y + "px";
+  notch.style.transform = "rotate(" + r + "deg)";
+  nc.appendChild(notch);
+  angle +=  (Math.PI / 60) * 10;
+}
+    </script>
+</body>
+
+</html>
