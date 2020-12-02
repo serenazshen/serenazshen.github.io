@@ -1,6 +1,11 @@
 $(function() {
 alert("The doctor will see you shortly. Please wait to be called.");
 
+  $("#help").click(function(){
+        alert("The doctor will see you shortly. Please wait to be called.");
+    });
+     
+     
      $("#mag").click(function(){
         $("#humanmag").show();
         });
