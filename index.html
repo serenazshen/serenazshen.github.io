@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+    
+    <link ref="stylesheet" href="drawingboard.nocontrol.css">
+    <script src="drawingboard.nocontrol.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
       	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
     <script src="main.js"></script>
@@ -73,6 +76,44 @@ text-shadow: 2px 4px 9px black;
         }
         
         #cacb:hover .tooltiptext{
+            visibility: visible;
+        }
+        
+        #help {
+             padding: 20px;
+            z-index: 90;
+            position: relative;
+            float: right;
+            display: inline-block;
+            width: 70px;
+            margin-right: 15px;
+            right: 0px;
+            top: 40px;
+        }
+        
+        #help .tooltiptext2 {
+            visibility: hidden;
+  width: 120px;
+  background-color: darkgray;
+  color: #fff;
+  text-align: center;
+text-shadow: 2px 4px 9px black;
+  border-radius: 19px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 10;
+  top: 15vh;
+  right: 0px;
+        }
+        
+        #help:hover {
+            filter: drop-shadow(2px 2px 4px gray);
+        }
+        
+        
+        #help:hover .tooltiptext2{
             visibility: visible;
         }
         
@@ -342,6 +383,9 @@ text-shadow: 2px 4px 9px black;
 <div id="menu">
     <div id="cacb">
     <img src="clipartclipboard.svg"><span class="tooltiptext">Patient Survey</span></div>
+    
+    <div id="help">
+    <img src="Asset%2036.svg"><span class="tooltiptext2">Ask to be Seen Now</span></div>
     </div>
     
     
