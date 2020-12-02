@@ -36,6 +36,7 @@
             width: 60px;
             display: none;
             z-index: 10;
+            
         }
         
         #back:hover {
@@ -135,10 +136,10 @@ text-shadow: 2px 4px 9px black;
         }
         #window {
             position: absolute;
-            right: 20vw;
+            right: 17vw;
             top: 5vh;
             height: 43vh;
-            width: 15vw;
+            width: 10vw;
             overflow: hidden;
             background-color: #b7e9f9;
             border: solid 1px;
@@ -153,10 +154,10 @@ text-shadow: 2px 4px 9px black;
         
         #window-frame {
             position: absolute;
-            right: 20vw;
+            right: 17vw;
             top: 5vh;
             height: 45vh;
-            width: 17.2vw;
+            width: 12.2vw;
              border: solid 1px;
             z-index: 4;
             background-color: #dddcdb;
@@ -166,16 +167,16 @@ text-shadow: 2px 4px 9px black;
             width: 10vw;
             height: 10vh;
             position: absolute;
-            right: 19.6vw;
+            right: 16.6vw;
             top: 36.5vh;
             z-index: 8;
         }
         #window-ledge {
             position: absolute;
-            right: 19vw;
+            right: 16vw;
             top: 50vh;
             height: 2vh;
-            width: 19vw;
+            width: 14vw;
              border: solid 1px;
             z-index: 4;
             background-color: #dddcdb;
@@ -185,7 +186,7 @@ text-shadow: 2px 4px 9px black;
         
         #clock {
             position: absolute;
-            right: 40vw;
+            right: 43vw;
             top: 0;
         }
         
@@ -332,6 +333,18 @@ text-shadow: 2px 4px 9px black;
          #mag:hover {
             filter: drop-shadow(2px 2px 4px gray);        }
 
+        #pamphlet {
+            width: 9%;
+            height: 150px;
+            z-index: 21;
+            position: absolute;
+            right: 9vw;
+            top: 28vh;
+        }
+        
+        #pamphlet:hover {
+            filter: drop-shadow(2px 2px 4px gray);        }
+        
         #humanmag {
             display:none;            
             position:fixed;
@@ -339,6 +352,15 @@ text-shadow: 2px 4px 9px black;
             width: 55vw;
             margin-right: 20%;
             transform: rotate(-12deg);
+        }
+        
+        #depressionpam {
+            display:none;            
+            position:fixed;
+            z-index: 15;
+            width: 59vw;
+            margin-left: 17vw;
+            transform: rotate(-10deg);
         }
         
         #rug {
@@ -431,6 +453,7 @@ skip_next
 <div id="table">
     <img id="tissue" src="tissue.svg">
     <img id="mag" src="Asset%2033.svg">
+    <img id="pamphlet" src="Asset%2039.svg">
     <img id="table-svg" src="table.svg">
     </div>
 <div id="rug">
@@ -446,6 +469,8 @@ skip_next
 <div id="humanmag">
     <img src="Asset%2034.svg"></div>
     
+<div id="depressionpam">
+    <img src="Asset%2038.svg"></div>
     <script>
       
 var x = document.getElementById("WhiteNoise"); 
